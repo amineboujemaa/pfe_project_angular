@@ -1,0 +1,54 @@
+<div style="background-color: #F8F8F8; min-height: 91vh;" *ngIf="car">
+    
+    <div style="padding-top: 70px;"></div>
+
+    <div style="margin-top: 10px;" class="child" >
+        <div nz-row>
+            <div nz-col nzSpan="8">
+                <img class="profile" style="height: 130px; width: 200px; border-radius: 10px;" [src]="processedImg"
+                    alt="profile" />
+            </div>
+            <div nz-col nzSpan="16">
+                <h2 style="cursor: pointer; color: #108ee9;">
+                    {{car.brand}} - {{car.name}}</h2>
+                <p>{{car.description}}</p>
+                
+                <hr>
+                <h5>Prix : <b>{{car.price}}MDT</b> - Couleur : <b>{{car.color}}</b> - transmission :
+                    <b>{{car.transmission}}</b> - Type : <b>{{car.type}}</b> - Year : <b>{{car.year | date: 'yyyy'}}</b>
+                </h5>
+                <hr>
+               
+            </div>
+        </div>
+    </div>
+    <nz-spin [nzSpinning]="isSpinning" [nzSize]="'large'" nzTip="working..." style="margin-top: 50px;">
+        <div class="dashboard-filter">
+            <form [formGroup]="validateForm">
+                <div class="filter-grid">
+                    <div class="filter-select-dropdown filter-fields-width">
+                        <nz-form-item style="margin-left: 25%;">
+                            <nz-form-label [nzSpan]="0" nzFor="visitDate"> visit Date</nz-form-label>
+                            <nz-form-control [nzSpan]="0">
+                                <nz-date-picker formControlName="visitDate" style="width: 30%;" nzPlaceHolder="Date du visite" name="visitDate"  id="visitDate">
+                                </nz-date-picker>
+                            </nz-form-control>
+                            <nz-form-label [nzSpan]="0" nzFor="visitTime"> Visit Time</nz-form-label>
+                            <nz-form-control [nzSpan]="0">
+                                <nz-time-picker formControlName="visitTime" style="width: 30%;" id="visitTime" nzFormat="HH:mm" name="visitTime" nzPlaceHolder="heure du visite">
+                                </nz-time-picker>
+                           </nz-form-control>
+                        </nz-form-item>
+
+
+                    </div>
+                    <div class="filter-select-dropdown filter-fields-width">
+                        <button class="filterBtn" style="margin-left: 50%;" nz-button nzType="primary"
+                        (click)="bookAVisit(validateForm.value)">
+                        Book Car</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </nz-spin>
+</div>

@@ -1,0 +1,51 @@
+<div style="background-color: #F8F8F8; min-height: 91vh;" *ngIf="car">
+
+    <div style="padding-top: 70px;">
+        <h1 class="text-xl font-bold text-gray-800 mb-4 text-center">Car Details</h1>
+
+    </div>
+
+    <div style="margin-top: 10px;" class="child" >
+
+        <div nz-row>
+            <div nz-col nzSpan="8">
+                <img class="profile" style="height: 130px; width: 200px; border-radius: 10px;" [src]="processedImg"
+                    alt="profile" />
+            </div>
+            <div nz-col nzSpan="16">
+                <h2 style="cursor: pointer; color: #108ee9;">
+                    {{car.brand}} - {{car.name}}
+                </h2>
+                <p>{{car.description}}</p>
+                <hr>
+                <h5>Prix : <b>{{car.price}}MDT</b> - Couleur : <b>{{car.color}}</b> - transmission :
+                    <b>{{car.transmission}}</b> - Type : <b>{{car.type}}</b> - Year : <b>{{car.year | date: 'yyyy'}}</b>
+                </h5>
+            </div>
+
+        </div>
+        <div nz-col nzSpan="50">
+            <hr>
+            <a href="">
+                plus de photos ⌵ 
+
+            </a>
+        </div>
+        <div nz-col nzSpan="50" class="comment-section">
+            <hr>
+            <h4>Commantaires</h4>
+            <div>
+                <form nz-form [formGroup]="commentForm">
+                    <nz-form-item appearance="fill">
+                        <nz-form-label>nouveau commantaire</nz-form-label>
+                        <textarea nz-input nzAutosize placeholder="Votre commantaire" formControlName="content"></textarea>
+                    </nz-form-item>
+                    <button style="margin-left: 10px;" nzSize="small" nz-button nzShape="round" nzType="dashed"
+                        (click)="publier()" >Publier votre commantaire</button>
+                </form>
+            </div>
+            
+        </div>
+
+    </div>
+</div>

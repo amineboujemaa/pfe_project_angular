@@ -1,0 +1,45 @@
+<nz-spin [nzSpinning]="isSpinning" [nzSize]="'large'" nzTip="working...">
+    <div>
+        <h1 class="text-xl font-bold text-gray-800 mb-4 text-center">Mes randez-vous</h1>
+
+    </div>
+    <nz-table>
+        <thead>
+            <tr>
+                <th style="font-weight: bolder; color: #003973;">Visit time</th>
+                <th style="font-weight: bolder; color: #003973;">Visit date</th>
+                <th style="font-weight: bolder; color: #003973;">Brand</th>
+                <th style="font-weight: bolder; color: #003973;">Name</th>
+                <th style="font-weight: bolder; color: #003973;">Color</th>
+                <th style="font-weight: bolder; color: #003973;">Type</th>
+                <th style="font-weight: bolder; color: #003973;">Transmission</th>
+                <th style="font-weight: bolder; color: #003973;">Year</th>
+                <th style="font-weight: bolder; color: #003973;">Price</th>
+                <th style="font-weight: bolder; color: #003973;">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let booking of bookings">
+                <td>{{ booking.visitTime | date:'hh:mm' }}</td>
+                <td>{{ booking.visitDate | date: 'MMM d, y' }}</td>
+                <td>{{ booking.brand }}</td>
+                <td>{{ booking.name }}</td>
+                <td>{{ booking.color }}</td>
+                <td>{{ booking.type }}</td>
+                <td>{{ booking.transmission }}</td>
+                <td>{{ booking.year | date: 'y' }}</td>
+                <td>{{ booking.price }}</td>                
+
+                <td>
+                    <strong [ngStyle]="{
+                        'color': booking.bookAVisitEnum === 'APPROVED' ? 'green' :
+                                 booking.bookAVisitEnum === 'REJECTED' ? 'red' :
+                                 booking.bookAVisitEnum === 'PENDING' ? 'orange' : ''
+                    }">
+                        {{ booking.bookAVisitEnum }}
+                    </strong>
+                </td>
+            </tr>
+        </tbody>
+    </nz-table>
+</nz-spin>

@@ -1,0 +1,63 @@
+h1 {
+    font-size: 36px; /* Taille de police pour h1 */
+    color: #333333; /* Couleur du texte pour h1 */
+    margin-bottom: 10px; /* Marge en bas pour h1 */
+    margin-top: 180px; /* Marge en bas pour h3 */
+    margin-left: 20%;
+
+}
+  
+  h3 {
+    font-size: 24px; /* Taille de police pour h3 */
+    color: #666666; /* Couleur du texte pour h3 */
+    margin-left: 20%;
+
+}
+
+.background-color{
+    background-color: #cccccc46;
+}
+  
+
+.trigger {
+    font-size: 18px;
+    line-height: 64px;
+    padding: 0 24px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.trigger:hover {
+    color: #1890ff;
+}
+
+.logo {
+    height: 32px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 16px;
+}
+.app-titel {
+    text-align: center; /* Center-align the text */
+    padding: 8px; /* Add padding to create space around the content */
+    border-bottom: 1px solid #ccc; /* Add a bottom border */
+  }
+  
+  .app-titel h1 {
+    margin: 0; /* Remove default margin for the heading */
+    font-size: 20px; /* Adjust the font size of the heading */
+    color: white; /* Set text color */
+  }
+
+
+nz-breadcrumb {
+    margin: 16px 0;
+}
+
+.inner-content {
+    padding: 24px;
+    min-height: 360px;
+}
+
+nz-footer {
+    text-align: center;
+}

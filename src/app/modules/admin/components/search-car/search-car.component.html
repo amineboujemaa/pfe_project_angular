@@ -1,0 +1,83 @@
+<div style="margin-top: 0px; padding: 100px">
+    <nz-spin [nzSpinning]="isSpinning" [nzSize]="'large'" nzTip="Working...">
+        <div class="flex flex-col items-center">
+            <h1 class="text-xl font-bold text-gray-800 mb-4 text-center">Recherche avance</h1>
+
+            <form nz-form [formGroup]="searchCarForm">
+                <div>
+                    <nz-form-item>
+                        <nz-form-control nzHasFeedback [nzXs]="24" nzErrorTip="Champ obligatoire !">
+                            <nz-select formControlName="brand" nzShowSearch nzAllowClear nzPlaceHolder="Choisissez une marque">
+                                <nz-option *ngFor="let brand of listOfBrands" nzLabel="{{brand}}"
+                                    nzValue="{{brand}}"></nz-option>
+                            </nz-select>
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+
+                <div>
+                    <nz-form-item>
+                        <nz-form-control nzHasFeedback [nzXs]="24" nzErrorTip="Champ obligatoire !">
+                            <nz-select formControlName="type" nzShowSearch nzAllowClear nzPlaceHolder="Type">
+                                <nz-option *ngFor="let type of listOfType" nzLabel="{{type}}"
+                                    nzValue="{{type}}"></nz-option>
+                            </nz-select>
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+
+                <div>
+                    <nz-form-item>
+                        <nz-form-control nzHasFeedback [nzXs]="24" nzErrorTip="Champ obligatoire !">
+                            <nz-select formControlName="transmission" nzShowSearch nzAllowClear
+                                nzPlaceHolder="boîte de vitesses">
+                                <nz-option *ngFor="let transmission of listOfTransmission" nzLabel="{{transmission}}"
+                                    nzValue="{{transmission}}"></nz-option>
+                            </nz-select>
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+
+                <div>
+                    <nz-form-item>
+                        <nz-form-control nzHasFeedback [nzXs]="24" nzErrorTip="Champ obligatoire !">
+                            <nz-select formControlName="color" nzShowSearch nzAllowClear nzPlaceHolder="Choisissez Couleur">
+                                <nz-option *ngFor="let color of listOfColor" nzLabel="{{color}}"
+                                    nzValue="{{color}}"></nz-option>
+                            </nz-select>
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+
+                <button nz-button class="login-form-button login-form-margin w-full" [nzType]="'primary'"
+                    (click)="searchCar()" nzShape="round">
+                    Recherche
+                </button>
+            </form>
+        </div>
+    </nz-spin>
+</div>
+
+<div style="margin-top: 10px;" class="child" *ngFor="let car of cars">
+    <div nz-row>
+        <div nz-col nzSpan="8">
+            <img class="profile" style="height: 130px; width: 200px; border-radius: 10px;" [src]="car.processedImg" alt="profile"/>
+        </div>
+        <div nz-col nzSpan="16">
+            <h2 style="cursor: pointer; color: #108ee9;">
+                {{car.brand}} - {{car.name}}
+            </h2>
+            <p>{{car.description}}</p>
+
+            <hr>
+            <h5>Prix : <b>{{car.price}}MDT</b> - Couleur : <b>{{car.color}}</b> - boîte de vitesses : 
+                <b>{{car.transmission}}</b> - Type : <b>{{car.type}}</b> - Annee : <b>{{car.year | date: 'yyyy'}}</b>
+            </h5>
+            <hr>
+            <div style="float: right;">
+                <button style="margin-left: 10px;" nzSize="small" nz-button nzType="primary" routerLink="/admin/car/{{car.id}}" >Modifier</button>
+                <button style="margin-left: 10px;" nzSize="small" nz-button nzType="primary" (click)="deleteCar(car.id)" nzDanger>Suprimer</button>
+            </div>
+        </div>
+    </div>
+</div>
