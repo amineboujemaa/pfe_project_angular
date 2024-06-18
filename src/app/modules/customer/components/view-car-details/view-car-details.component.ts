@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AdminService } from '../../services/admin.service';
+import { CustomerService } from '../../services/customer.service';
 import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NzMessageService } from 'ng-zorro-antd/message';
@@ -18,31 +18,27 @@ export class ViewCarDetailsComponent implements OnInit {
   commentForm!:FormGroup;
   comments: any;
 
-  constructor(private adminService:AdminService,
+  constructor(    private service : CustomerService,
     private activatedRoute : ActivatedRoute,
     private fb : FormBuilder,
     private message : NzMessageService
-
-  ) { }
+) { }
 
   ngOnInit(): void {
-  this.getCarById();
-  this.getComments();
-  this.commentForm=this.fb.group({
-    content:[null,Validators.required]
-  })
+    this.getCarById();
+    this.getComments();
+    this.commentForm=this.fb.group({content:[null,Validators.required]})
   }
+
   getCarById(){
-    this.adminService.getCarById(this.carId).subscribe((res)=>{
+    this.service.getCarById(this.carId).subscribe((res)=>{
       console.log(res);
       this.processedImg = 'data:image/jpeg;base64,'+res.returnedImage;
       this.car = res;
     })
-
   }
-
   getComments(){
-    this.adminService.getCommentByCarId(this.carId).subscribe((res)=>{
+    this.service.getCommentByCarId(this.carId).subscribe((res)=>{
       console.log(res);
       this.comments = res;
     })
@@ -50,7 +46,7 @@ export class ViewCarDetailsComponent implements OnInit {
   }
 
   publier(){
-    this.adminService.createComment(this.carId, this.commentForm.get("content")?.value).subscribe((res)=>{
+    this.service.createComment(this.carId, this.commentForm.get("content")?.value).subscribe((res)=>{
       if(res.id!=null){
         this.message.success("Votre commantaire est bien publier", { nzDuration: 5000 });
         this.getComments();
@@ -60,4 +56,5 @@ export class ViewCarDetailsComponent implements OnInit {
       }
     })
   }
+
 }

@@ -29,6 +29,12 @@ export class AdminService {
     });
   }
 
+  getCommentByCarId(id: number): Observable<any> {
+    return this.http.get(BASIC_URL+ "/api/admin/comments/"+id, {
+      headers: this.createAuthorizationHeader()
+    });
+  }
+
   getCarById(id: number): Observable<any>{
     return this.http.get(BASIC_URL + "/api/admin/car/"+id, {
       headers : this.createAuthorizationHeader()

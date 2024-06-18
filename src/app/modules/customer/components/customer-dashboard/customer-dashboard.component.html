@@ -24,6 +24,8 @@
                 <div style="float: right;">
                     <button style="margin-left: 10px;" nzSize="small" nz-button nzType="primary"
                         (click)="saveThisCar(car.id)">Enregistrer</button>
+                    <button style="margin-left: 10px;" nzSize="small" nzShape="round" nz-button nzType="primary"
+                        routerLink="/customer/car-details/{{car.id}}">details</button>
                 </div>
             </div>
         </div>

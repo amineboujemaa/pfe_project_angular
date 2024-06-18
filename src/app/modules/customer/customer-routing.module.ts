@@ -6,6 +6,7 @@ import { MyBookingsComponent } from './components/my-bookings/my-bookings.compon
 import { SearchCarComponent } from './components/search-car/search-car.component';
 import { UserUpdateComponent } from './components/user-update/user-update.component';
 import { SavedCarComponent } from './components/saved-car/saved-car.component';
+import { ViewCarDetailsComponent } from './components/view-car-details/view-car-details.component';
 const routes: Routes = [
   {path:"dashboard",component : CustomerDashboardComponent},
   {path:"book/:id",component : BookVisitComponent},
@@ -13,6 +14,8 @@ const routes: Routes = [
   {path:"search",component : SearchCarComponent},
   {path:"user-update",component : UserUpdateComponent},
   {path:"savedcar",component : SavedCarComponent},
+  {path: "car-details/:id" , component: ViewCarDetailsComponent},
+
 
 ];
 
