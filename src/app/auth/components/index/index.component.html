@@ -1,10 +1,13 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 <div style="background-color: #F8F8F8; min-height: 91vh;">
     <div style="padding-top: 10px;"></div>
 
     <div style="margin-top: 10px;" class="child" *ngFor="let car of cars">
         <div nz-row>
             <div nz-col nzSpan="8">
-                <img class="profile" style="height: 130px; width: 200px; border-radius: 10px;" [src]="car.processedImg" alt="profile"/>
+                <img class="profile" style="height: 130px; width: 200px; border-radius: 10px;" [src]="car.processedImg"
+                    alt="profile" />
             </div>
             <div nz-col nzSpan="16">
                 <h2 style="cursor: pointer; color: #108ee9;">
@@ -13,13 +16,17 @@
                 <p>{{car.description}}</p>
 
                 <hr>
-                <h5>Prix : <b>{{car.price}}MDT</b> - Couleur : <b>{{car.color}}</b> - boîte de vitesses : 
-                    <b>{{car.transmission}}</b> - Type : <b>{{car.type}}</b> - annee : <b>{{car.year | date: 'yyyy'}}</b>
+                <h5>Prix : <b>{{car.price}}MDT</b> - Couleur : <b>{{car.color}}</b> - boîte de vitesses :
+                    <b>{{car.transmission}}</b> - Type : <b>{{car.type}}</b> - annee : <b>{{car.year | date:
+                        'yyyy'}}</b>
                 </h5>
                 <hr>
                 <div style="float: right;">
-                    <button style="margin-left: 10px;" nzSize="small" nzShape="round" nz-button nzType="primary" routerLink="/login" >Modifier</button>
-                    <button style="margin-left: 10px;" nzSize="small" nz-button nzShape="round" nzType="dashed"  nzDanger>Suprimer</button>
+                    <div class="button-links">
+                        <a class="fas fa-bookmark" routerLink="/login"></a>
+                        <a routerLink="/login" class="fas fa-calendar-alt"></a>
+                        <a class="fas fa-info" routerLink="/login"></a>
+                      </div>
                 </div>
             </div>
         </div>

@@ -3,7 +3,7 @@
     width: 780px;
     background-color: white;
     background: white;
-    box-shadow: 1px 1px 15px -7px rgba(0,0,0,0.1);
+    box-shadow: 1px 1px 15px -7px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     margin-left: auto;
     margin-right: auto;
@@ -20,7 +20,7 @@
     margin-top: 20px;
 }
 
-i{
+i {
     font-size: 20px;
     font-weight: bold;
 }
@@ -33,22 +33,23 @@ i{
     transform: translateY(-50%);
 }
 
-tr{
+tr {
     padding: 5px;
     padding-top: 0px;
     padding-bottom: 0px;
     margin-bottom: 0px;
 }
-p{
+
+p {
     margin-bottom: 0em;
 }
 
-hr{
+hr {
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
-h2:hover{
+h2:hover {
     text-decoration-line: underline;
 }
 
@@ -59,4 +60,229 @@ h2:hover{
     margin-right: auto;
     padding-bottom: 20px;
     margin-top: 20px;
+}
+
+.button-links {
+    display: flex;
+    justify-content: center;
+}
+
+.button-links a {
+    text-decoration: none;
+    width: 40px;
+    height: 40px;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.4rem;
+    transition: all 0.4s ease;
+}
+
+.button-links a {
+    color: #108ee9;
+    border-color: #108ee9;
+}
+
+
+.widget-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.icon-white {
+    color: white;
+    border-color: white;
+}
+
+
+.widget {
+    width: 325px;
+    height: 175px;
+    background-color: #fff;
+    color: #fff;
+    border-radius: 5px;
+    margin: 10px;
+    box-shadow: 5px 5px 5px #939393;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.widget.green {
+    background-color: rgb(4, 67, 66);
+}
+
+.widget.yellow {
+    background-color: rgb(237, 158, 32);
+}
+
+.widget.red {
+    background-color: rgb(126, 5, 5);
+}
+
+.widget.blue {
+    background-color: rgb(105, 32, 251);
+}
+
+@media only screen and (max-width: 1600px) {
+    .widget {
+        width: 300px;
+    }
+}
+
+@media only screen and (max-width: 1500px) {
+    .widget {
+        width: 275px;
+    }
+}
+
+@media only screen and (max-width: 1400px) {
+    .widget {
+        width: 250px;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .widget {
+        width: 225px;
+    }
+}
+
+.icon {
+    width: 100px;
+    font-size: 60px;
+    text-align: center;
+}
+
+@media only screen and (max-width: 1200px) {
+    .icon {
+        font-size: 45px;
+    }
+}
+
+.value {
+    text-align: center;
+    width: 175px;
+}
+
+.value .top {
+    font-size: 30px;
+}
+
+@media only screen and (max-width: 1200px) {
+    .value .top {
+        font-size: 26px;
+    }
+}
+
+.value .bottom {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+@media only screen and (max-width: 1200px) {
+    .value .bottom {
+        font-size: 16px;
+    }
+}
+
+.widget-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.widget {
+    width: 325px;
+    height: 175px;
+    background-color: #fff;
+    color: #fff;
+    border-radius: 5px;
+    margin: 10px;
+    box-shadow: 5px 5px 5px #939393;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.widget.green {
+    background-color: rgb(4, 67, 66);
+}
+
+.widget.yellow {
+    background-color: rgb(237, 158, 32);
+}
+
+.widget.red {
+    background-color: rgb(126, 5, 5);
+}
+
+.widget.blue {
+    background-color: rgb(105, 32, 251);
+}
+
+@media only screen and (max-width: 1600px) {
+    .widget {
+        width: 300px;
+    }
+}
+
+@media only screen and (max-width: 1500px) {
+    .widget {
+        width: 275px;
+    }
+}
+
+@media only screen and (max-width: 1400px) {
+    .widget {
+        width: 250px;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .widget {
+        width: 225px;
+    }
+}
+
+.icon {
+    width: 100px;
+    font-size: 60px;
+    text-align: center;
+}
+
+@media only screen and (max-width: 1200px) {
+    .icon {
+        font-size: 45px;
+    }
+}
+
+.value {
+    text-align: center;
+    width: 175px;
+}
+
+.value .top {
+    font-size: 30px;
+}
+
+@media only screen and (max-width: 1200px) {
+    .value .top {
+        font-size: 26px;
+    }
+}
+
+.value .bottom {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+@media only screen and (max-width: 1200px) {
+    .value .bottom {
+        font-size: 16px;
+    }
 }

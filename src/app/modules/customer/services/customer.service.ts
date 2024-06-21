@@ -46,6 +46,22 @@ export class CustomerService {
     })
   }
 
+  getCommentByCarId(id: number): Observable<any> {
+    return this.http.get(BASIC_URL+ "/api/customer/comments/"+id, {
+      headers: this.createAuthorizationHeader()
+    });
+  }
+  createComment(carId: number , content : string): Observable<any>{
+    const userId = StorageService.getUserId();
+    const commentRequestDto = {
+      carId: carId,
+      userId: userId,
+      content: content
+    };
+    return this.http.post(BASIC_URL + "/api/customer/car/comment", commentRequestDto, {
+      headers: this.createAuthorizationHeader()
+    });
+  }
   
   getCarsByUserId():Observable<any>{
     const userId = StorageService.getUserId();
@@ -55,7 +71,7 @@ export class CustomerService {
   }
 
   deleteCar(id: number): Observable<any> {
-    return this.http.delete(BASIC_URL+ "/api/admin/car/myCars/delete/"+id, {
+    return this.http.delete(BASIC_URL+ "/api/customer/car/myCars/delete/"+id, {
       headers: this.createAuthorizationHeader()
     });
   }
@@ -79,6 +95,12 @@ export class CustomerService {
     })
   }
 
+  getStat(): Observable<any> {
+    const userId = StorageService.getUserId();
+    return this.http.get(BASIC_URL +"/api/customer/car/stat/"+ userId,{
+      headers: this.createAuthorizationHeader()
+    });
+  }
 
   createAuthorizationHeader(): HttpHeaders {
     let authHeaders: HttpHeaders = new HttpHeaders();

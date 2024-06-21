@@ -11,17 +11,24 @@ import { NzMessageService } from 'ng-zorro-antd/message';
 export class CustomerDashboardComponent {
 
   cars: any = [];
+  pinned: any;
+  data: any;
 
   constructor(private service: CustomerService,
     private message: NzMessageService,
 
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.getAllCars();
+    this.service.getStat().subscribe(res => {
+      console.log(res);
+      this.data = res;
+    })
   }
 
   getAllCars() {
+
     this.service.getAllCars().subscribe((res) => {
       console.log(res);
       this.cars = [];
@@ -29,11 +36,11 @@ export class CustomerDashboardComponent {
         car.processedImg = 'data:image/jpeg;base64,' + car.returnedImage;
         this.cars.push(car);
       });
-      
+
     })
   }
 
-  saveThisCar(carID:number) {
+  saveThisCar(carID: number) {
     let savedCarDto = {
       carId: carID,
       userId: StorageService.getUserId(),

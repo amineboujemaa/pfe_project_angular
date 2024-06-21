@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 <div style="background-color: #F8F8F8; min-height: 91vh;" *ngIf="car">
     
     <div style="padding-top: 70px;"></div>
@@ -43,9 +45,9 @@
 
                     </div>
                     <div class="filter-select-dropdown filter-fields-width">
-                        <button class="filterBtn" style="margin-left: 50%;" nz-button nzType="primary"
-                        (click)="bookAVisit(validateForm.value)">
-                        Book Car</button>
+                        <div class="button-links">
+                            <a class="fas fa-check" (click)="bookAVisit(validateForm.value)"></a>
+                          </div>
                     </div>
                 </div>
             </form>

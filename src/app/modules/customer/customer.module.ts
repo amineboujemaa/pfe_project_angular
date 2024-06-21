@@ -17,6 +17,7 @@ import { NzTableModule } from 'ng-zorro-antd/table';
 import { SearchCarComponent } from './components/search-car/search-car.component';
 import { UserUpdateComponent } from './components/user-update/user-update.component';
 import { SavedCarComponent } from './components/saved-car/saved-car.component';
+import { ViewCarDetailsComponent } from './components/view-car-details/view-car-details.component';
 
 
 
@@ -28,6 +29,7 @@ import { SavedCarComponent } from './components/saved-car/saved-car.component';
     SearchCarComponent,
     UserUpdateComponent,
     SavedCarComponent,
+    ViewCarDetailsComponent,
     
   ],
   imports: [
