@@ -22,6 +22,7 @@ export class CustomerDashboardComponent {
   ngOnInit() {
     this.getAllCars();
     this.service.getStat().subscribe(res => {
+      console.log(res);
       this.data = res;
     })
   }
@@ -36,9 +37,6 @@ export class CustomerDashboardComponent {
         this.cars.push(car);
       });
 
-    })
-    this.service.getStat().subscribe(res => {
-      console.log(res)
     })
   }
 

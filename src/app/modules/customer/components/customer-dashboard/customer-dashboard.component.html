@@ -1,9 +1,67 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
+<div class="widget-container" *ngIf="data">
+    <div class="widget blue">
+        <div class="icon">
+            <p class="fas fa-car-alt icon-white"></p>
+        </div>
+        <div class="value">
+            <div class="top">{{data.cars}}</div>
+            <div class="bottom">Voitures</div>
+        </div>
+    </div>
+    <div class="widget blue">
+        <div class="icon">
+            <p class="fas fa-heart"></p>
+        </div>
+        <div class="value">
+            <div class="top">{{data.savedCars}}</div>
+            <div class="bottom">Favoris</div>
+        </div>
+    </div>
+    <div class="widget blue">
+        <div class="icon">
+            <p class="fas fa-calendar-alt"></p>
+        </div>
+        <div class="value">
+            <div class="top">{{data.bookings}}</div>
+            <div class="bottom">Rendez-vous</div>
+        </div>
+    </div>
+    <div class="widget green">
+        <div class="icon">
+            <p class="fas fa-calendar-alt"></p>
+        </div>
+        <div class="value">
+            <div class="top">{{data.approvedBookings}}</div>
+            <div class="bottom">Confirmer</div>
+        </div>
+    </div>
+    <div class="widget red">
+        <div class="icon">
+            <p class="fas fa-calendar-alt"></p>
+        </div>
+        <div class="value">
+            <div class="top">{{data.rejectedBookings}}</div>
+            <div class="bottom">Rejeter</div>
+        </div>
+    </div>
+    <div class="widget yellow">
+        <div class="icon">
+            <p class="fas fa-calendar-alt"></p>
+        </div>
+        <div class="value">
+            <div class="top">{{data.pendingBookings}}</div>
+            <div class="bottom">En cours</div>
+        </div>
+    </div>
+</div>
+
+
 <div style="background-color: #F8F8F8; min-height: 91vh;">
-    
+
     <div style="margin-top: 10px;" class="child" *ngFor="let car of cars">
-       
+
         <div nz-row>
             <div nz-col nzSpan="8">
                 <img class="profile" style="height: 130px; width: 200px; border-radius: 10px;" [src]="car.processedImg"
@@ -24,12 +82,12 @@
                         <a class="fas fa-bookmark" (click)="saveThisCar(car.id)"></a>
                         <a routerLink="/customer/book/{{car.id}}" class="fas fa-calendar-alt"></a>
                         <a class="fas fa-info" routerLink="/customer/car-details/{{car.id}}"></a>
-                      </div>
+                    </div>
                 </div>
 
-                
+
             </div>
         </div>
-    
+
     </div>
 </div>
