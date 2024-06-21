@@ -60,3 +60,25 @@ h2:hover{
     padding-bottom: 20px;
     margin-top: 20px;
 }
+.button-links {
+    display: flex;
+    justify-content: center;
+    }
+    .button-links a {
+    text-decoration: none;
+    width: 40px;
+    height: 40px;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.4rem;
+    transition: all 0.4s ease;
+    }
+    .button-links a
+    {
+    color: #108ee9;
+    border-color: #108ee9;
+    }

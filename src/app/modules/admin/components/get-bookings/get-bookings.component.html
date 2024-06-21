@@ -1,60 +1,65 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
 <div>
-<nz-spin [nzSpinning]="isSpinning" [nzSize]="'large'" nzTip="working..." >
-    <h1 class="text-xl font-bold text-gray-800 mb-4 text-center">Randez-vous</h1>
+    <nz-spin [nzSpinning]="isSpinning" [nzSize]="'large'" nzTip="working...">
+        <h1 class="text-xl font-bold text-gray-800 mb-4 text-center">Randez-vous</h1>
 
-    <nz-table>
-        <thead>
-            <tr>
-                <th style="font-weight: bolder; color: #003973;">Heure du visite</th>
-                <th style="font-weight: bolder; color: #003973;">Date du visite</th>
-                <th style="font-weight: bolder; color: #003973;">Marque</th>
-                <th style="font-weight: bolder; color: #003973;">modele</th>
-                <th style="font-weight: bolder; color: #003973;">Couleur</th>
-                <th style="font-weight: bolder; color: #003973;">Type</th>
-                <th style="font-weight: bolder; color: #003973;">Boîte des vitesses</th>
-                <th style="font-weight: bolder; color: #003973;">Annee</th>
-                <th style="font-weight: bolder; color: #003973;">Prix</th>
-                <th style="font-weight: bolder; color: #003973;">Status</th>
-                <th style="font-weight: bolder; color: #003973;">Client</th>
-                <th style="font-weight: bolder; color: #003973;">Action</th>
+        <nz-table>
+            <thead>
+                <tr>
+                    <th style="font-weight: bolder; color: #003973;">Heure du visite</th>
+                    <th style="font-weight: bolder; color: #003973;">Date du visite</th>
+                    <th style="font-weight: bolder; color: #003973;">Marque</th>
+                    <th style="font-weight: bolder; color: #003973;">modele</th>
+                    <th style="font-weight: bolder; color: #003973;">Couleur</th>
+                    <th style="font-weight: bolder; color: #003973;">Type</th>
+                    <th style="font-weight: bolder; color: #003973;">Boîte des vitesses</th>
+                    <th style="font-weight: bolder; color: #003973;">Annee</th>
+                    <th style="font-weight: bolder; color: #003973;">Prix</th>
+                    <th style="font-weight: bolder; color: #003973;">Status</th>
+                    <th style="font-weight: bolder; color: #003973;">Client</th>
+                    <th style="font-weight: bolder; color: #003973;">Action</th>
 
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let booking of bookings">
-                <td>{{ booking.visitTime | date:'hh:mm' }}</td>
-                <td>{{ booking.visitDate | date: 'MMM d, y' }}</td>
-                <td>{{ booking.brand }}</td>
-                <td>{{ booking.name }}</td>
-                <td>{{ booking.color }}</td>
-                <td>{{ booking.type }}</td>
-                <td>{{ booking.transmission }}</td>
-                <td>{{ booking.year | date: 'y' }}</td>
-                <td>{{ booking.price }}</td>
-                <td>{{ booking.username }}</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let booking of bookings">
+                    <td>{{ booking.visitTime | date:'hh:mm' }}</td>
+                    <td>{{ booking.visitDate | date: 'MMM d, y' }}</td>
+                    <td>{{ booking.brand }}</td>
+                    <td>{{ booking.name }}</td>
+                    <td>{{ booking.color }}</td>
+                    <td>{{ booking.type }}</td>
+                    <td>{{ booking.transmission }}</td>
+                    <td>{{ booking.year | date: 'y' }}</td>
+                    <td>{{ booking.price }}</td>
+                    <td>{{ booking.username }}</td>
 
-                <td>
-                    <strong [ngStyle]="{
+                    <td>
+                        <strong [ngStyle]="{
                             'color': booking.bookAVisitEnum === 'APPROVED' ? 'green' :
                                      booking.bookAVisitEnum === 'REJECTED' ? 'red' :
                                      booking.bookAVisitEnum === 'PENDING' ? 'orange' : ''
                         }">
-                        {{ booking.bookAVisitEnum }}
-                    </strong>
-                </td>
-                <td>
-                    <span *ngIf="booking.bookAVisitEnum == 'PENDING'">
-                        <button style="margin-left: 0px;" nzSize="default" nzShape="round" nz-button nzType="primary"
-                            (click)="confirmChoix(booking.id , 'APPROVED')">Approuvé </button>
-                        <tr></tr>    
-                        <button style="margin-left: 10px;" nzShape="round" nzSize="default" nz-button nzType="dashed"
-                            (click)="confirmChoix(booking.id , 'REJECTED')" nzDanger>Rejeté</button>
-                    </span>
-                </td>
-            </tr>
-            <tr style="float: right;">
-                <button nz-button style="margin-left: 10px;" nzSize="default" nzShape="round" nzType="primary" (click)="showAllBookings()">Afficher tout</button></tr>
-        </tbody>
-    </nz-table>
-</nz-spin>
+                            {{ booking.bookAVisitEnum }}
+                        </strong>
+                    </td>
+                    <td>                            
+                        <div class="button-links">
+                        <span *ngIf="booking.bookAVisitEnum == 'PENDING'">
+                            <a class="fas fa-check" style="margin-left: 5px;" (click)="confirmChoix(booking.id , 'APPROVED')"></a>    
+                            <a class="fas fa-times" style="margin-left: 0px;" (click)="confirmChoix(booking.id , 'REJECTED')" style="color: red; border-color: red;"></a>   
+                        </span>
+                        </div>
+                    </td>
+                </tr>
+                <tr style="float: right;">
+                    <div class="button-links">
+                        <a class="fas fa-plus" (click)="showAllBookings()"></a>                       
+                    </div>
+                </tr>
+            </tbody>
+        </nz-table>
+    </nz-spin>
 </div>

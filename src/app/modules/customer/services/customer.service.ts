@@ -95,6 +95,12 @@ export class CustomerService {
     })
   }
 
+  getStat(): Observable<any> {
+    const userId = StorageService.getUserId();
+    return this.http.get(BASIC_URL +"/api/customer/car/stat/"+ userId,{
+      headers: this.createAuthorizationHeader()
+    });
+  }
 
   createAuthorizationHeader(): HttpHeaders {
     let authHeaders: HttpHeaders = new HttpHeaders();

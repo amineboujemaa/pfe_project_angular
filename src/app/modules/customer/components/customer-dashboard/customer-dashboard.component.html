@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 <div style="background-color: #F8F8F8; min-height: 91vh;">
     
     <div style="margin-top: 10px;" class="child" *ngFor="let car of cars">
@@ -18,15 +20,14 @@
                 </h5>
                 <hr>
                 <div style="float: right;">
-                    <button style="margin-left: 10px;" nzSize="small" nz-button nzType="primary"
-                        routerLink="/customer/book/{{car.id}}">Randez-vous</button>
+                    <div class="button-links">
+                        <a class="fas fa-bookmark" (click)="saveThisCar(car.id)"></a>
+                        <a routerLink="/customer/book/{{car.id}}" class="fas fa-calendar-alt"></a>
+                        <a class="fas fa-info" routerLink="/customer/car-details/{{car.id}}"></a>
+                      </div>
                 </div>
-                <div style="float: right;">
-                    <button style="margin-left: 10px;" nzSize="small" nz-button nzType="primary"
-                        (click)="saveThisCar(car.id)">Enregistrer</button>
-                    <button style="margin-left: 10px;" nzSize="small" nzShape="round" nz-button nzType="primary"
-                        routerLink="/customer/car-details/{{car.id}}">details</button>
-                </div>
+
+                
             </div>
         </div>
     
