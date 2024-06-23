@@ -6,6 +6,7 @@ import { UpdateCarComponent } from './components/update-car/update-car.component
 import { GetBookingsComponent } from './components/get-bookings/get-bookings.component';
 import {SearchCarComponent} from './components/search-car/search-car.component'
 import { ViewCarDetailsComponent } from './components/view-car-details/view-car-details.component';
+import { AdminUpdateComponent } from './components/admin-update/admin-update.component';
 
 const routes: Routes = [
   {path: "dashboard",component:AdminDashboardComponent},
@@ -13,6 +14,8 @@ const routes: Routes = [
   {path: "car/:id" , component: UpdateCarComponent},
   {path: "bookings" , component: GetBookingsComponent},
   {path: "search" , component: SearchCarComponent},
+  {path:"admin-update",component : AdminUpdateComponent},
+
   {path: "car-details/:id" , component: ViewCarDetailsComponent}
 
 

@@ -1,0 +1,72 @@
+<div class="bg" style="background-color: #f8f8f8;">
+    <nz-spin [nzSpinning]="isSpinning" [nzSize]="'large'" nzTip="working...">
+
+        <div class="parent">
+            <div class="child">
+                <div nz-row class="imgDiv">
+                    <div nz-col nzSpan="24">
+                        <h1 style=" color: #125492;">Modifier votre profile</h1>
+                    </div>
+                </div>
+                <form nz-form [formGroup]="userUpdateForm">
+                    <nz-form-item>
+                        <nz-form-control [nzHasFeedback]="true" [nzErrorTip]="'The input is not a valid email!'" >
+                            <nz-input-group nzPrefixIcon="mail">
+                                <input nz-input placeholder="E-mail" id="e-mail" formControlName="email" [disabled]="true"/>
+                            </nz-input-group>
+                        </nz-form-control>
+                    </nz-form-item>
+
+                    <nz-form-item>
+                        <nz-form-control [nzHasFeedback]="true" [nzErrorTip]="errorPass">
+                            <nz-input-group nzPrefixIcon="lock">    
+                                <input nz-input placeholder="Saisir votre ancien mots de passe" type="password" id="password" formControlName="password" />
+                            </nz-input-group>
+                                <ng-template #errorPass left-control>
+                                <ng-container ngIf="control.hasError('required')">
+                                    Password Is required
+                                </ng-container>
+                                <ng-container ngIf="control.hasError('pattern')">
+                                    password Should Contains 8 character,1lowercase,1Uppercase,1number and special
+                                    character
+                                </ng-container>
+                            </ng-template>
+                        </nz-form-control>
+                    </nz-form-item>
+                    
+
+                    <nz-form-item>
+                        <nz-form-control [nzHasFeedback]="true" [nzErrorTip]="errorTpl">
+                            <nz-input-group nzPrefixIcon="lock">    
+                                <input nz-input placeholder="Saisir votre nouveau mots de passe" type="password" id="newpassword" formControlName="newpassword"/>
+                            </nz-input-group>
+                            <ng-template #errorTpl left-control>
+                                <ng-container ngIf="control.hasError('required')">
+                                    Please confirm your password
+                                </ng-container>
+                                <ng-container ngIf="control.hasError('confirm')">
+                                    Two passwords that you enter is inconsistant!
+                                </ng-container>
+                            </ng-template>
+                        </nz-form-control>
+                    </nz-form-item>
+
+                    <nz-form-item>
+                        <nz-form-control [nzHasFeedback]="true" [nzErrorTip]="userErrorTpl">
+                            <nz-input-group nzPrefixIcon="user-add">    
+                                <input nz-input placeholder="Name" id="username" formControlName="name"/>
+                            </nz-input-group>    
+                            <ng-template #userErrorTpl left-control>
+                                <ng-container ngIf="control.hasError('required')">
+                                    Please input your username
+                                </ng-container>
+                            </ng-template>
+                        </nz-form-control>
+                    </nz-form-item>
+                    <button nz-button class="login-form-button login-form-margin"  [nzType]="'primary'" (click)="UpdateUser()" >confirmer</button>
+                                </form>
+            </div>
+        </div>
+
+    </nz-spin>
+</div>

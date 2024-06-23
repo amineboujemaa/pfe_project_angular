@@ -83,6 +83,20 @@ export class AdminService {
     });
   }
   
+  getUserById(): Observable<any>{
+    const userId = StorageService.getUserId();
+    return this.http.get(BASIC_URL + "/api/admin/userUpdate/" + userId,{
+      headers:this.createAuthorizationHeader()
+    })
+  }
+  updateUser(updateUserResponse : any): Observable<any>{
+    const userId = StorageService.getUserId();
+    return this.http.put(BASIC_URL + "/api/admin/userUpdate/confirm/"+userId , updateUserResponse, {
+      headers : this.createAuthorizationHeader()
+    });
+  }
+ 
+
   getStat(): Observable<any> {
     return this.http.get(BASIC_URL +"/api/admin/car/stat",{
       headers: this.createAuthorizationHeader()
@@ -95,5 +109,6 @@ export class AdminService {
       'Bearer '+ StorageService.getToken());
     
   }
-  
+
+   
 }

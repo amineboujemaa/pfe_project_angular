@@ -1,26 +1,26 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CustomerService } from '../../services/customer.service';
+
 import { Router } from '@angular/router';
 import { NzMessageService } from 'ng-zorro-antd/message';
+import { AdminService } from '../../services/admin.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-user-update',
-  templateUrl: './user-update.component.html',
-  styleUrls: ['./user-update.component.scss']
+  selector: 'app-admin-update',
+  templateUrl: './admin-update.component.html',
+  styleUrls: ['./admin-update.component.scss']
 })
-export class UserUpdateComponent implements OnInit {
-userUpdateForm!: FormGroup;
-confirmationValidate: any;
-isSpinning = false;
-
-
-  constructor(    private fb: FormBuilder,
-    private service : CustomerService,
-    private router:Router,
-    private message : NzMessageService
-
-  ) {  }
+export class AdminUpdateComponent implements OnInit {userUpdateForm!: FormGroup;
+  confirmationValidate: any;
+  isSpinning = false;
+  
+  
+    constructor(    private fb: FormBuilder,
+      private service : AdminService,
+      private router:Router,
+      private message : NzMessageService
+  
+    ) { }
 
   ngOnInit(): void {
     this.getUser();
@@ -32,6 +32,7 @@ isSpinning = false;
       newpassword: [null, [Validators.required]],
     })
   }
+
 
   getUser(){
     this.isSpinning = true;
@@ -56,7 +57,7 @@ isSpinning = false;
     this.service.updateUser(formData).subscribe((res) => {
       this.isSpinning = false;
       this.message.success("Bien modifier", { nzDuration: 5000 });
-      this.router.navigateByUrl("/customer/dashboard");
+      this.router.navigateByUrl("/admin/dashboard");
       console.log(res);
     },
       (error) => {
@@ -65,6 +66,5 @@ isSpinning = false;
         console.log(error)
       })
   }
-  
 
 }
