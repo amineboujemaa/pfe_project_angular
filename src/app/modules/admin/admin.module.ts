@@ -18,6 +18,7 @@ import { NzTableModule } from 'ng-zorro-antd/table';
 import { SearchCarComponent } from './components/search-car/search-car.component';
 import { ViewCarDetailsComponent } from './components/view-car-details/view-car-details.component';
 import { AdminUpdateComponent } from './components/admin-update/admin-update.component';
+import { UserManagementComponent } from './components/user-management/user-management.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { AdminUpdateComponent } from './components/admin-update/admin-update.com
     GetBookingsComponent,
     SearchCarComponent,
     ViewCarDetailsComponent,
-    AdminUpdateComponent
+    AdminUpdateComponent,
+    UserManagementComponent
   ],
   imports: [
     CommonModule,

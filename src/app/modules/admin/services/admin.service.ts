@@ -110,5 +110,11 @@ export class AdminService {
     
   }
 
+  getAllUsers():Observable<any> {
+    return this.http.get(BASIC_URL+"/api/admin/users/",{
+      headers : this.createAuthorizationHeader()
+    })
+  }
+
    
 }

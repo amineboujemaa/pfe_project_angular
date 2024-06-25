@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <div class="widget-container" *ngIf="data">
     <div class="widget blue">
@@ -78,14 +78,18 @@
                         'yyyy'}}</b>
                 </h5>
                 <hr>
-                                <div style="float: right;">
+                <div style="float: right;">
                     <div class="button-links">
-                        
-                        <a class="fas fa-edit" routerLink="/admin/car/{{car.id}}"></a>
-                        <a class="fas fa-info" routerLink="/customer/car-details/{{car.id}}"></a>
-                        <a class="fas fa-trash-alt" (click)="confirmDelete(car.id)" style="color: red; border-color:red"></a>
 
-                      </div>
+                        <a class="fas fa-edit" routerLink="/admin/car/{{car.id}}"></a>
+                        <a class="fas fa-info" routerLink="/admin/car-details/{{car.id}}"></a>
+                        <a class="fa-solid fa-qrcode" routerLink=""></a>
+
+                        <a class="fas fa-trash-alt" (click)="confirmDelete(car.id)"
+                            style="color: red; border-color:red"></a>
+
+
+                    </div>
                 </div>
             </div>
         </div>

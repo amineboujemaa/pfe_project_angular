@@ -1,0 +1,45 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+<div>
+    <nz-spin [nzSpinning]="isSpinning" [nzSize]="'large'" nzTip="working...">
+        <h1 class="text-xl font-bold text-gray-800 mb-4 text-center">Gestion des utilisateurs</h1>
+
+        <nz-table>
+            <thead>
+                <tr>
+                    <th style="font-weight: bolder; color: #003973;">ID</th>
+                    <th style="font-weight: bolder; color: #003973;">Username</th>
+                    <th style="font-weight: bolder; color: #003973;">User email</th>
+                    <th style="font-weight: bolder; color: #003973;">User role</th>
+                    <th style="font-weight: bolder; color: #003973;">Action</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users">
+                    <td>{{ user.id}}</td>
+                    <td>{{ user.name}}</td>
+                    <td>{{ user.username}}</td>
+                    <td>{{ user.userRole}}</td>
+                    <td>
+                        <div style="float: right;">
+                            <div class="button-links">
+
+                                <span *ngIf="user.userRole == 'ADMIN'">
+                                    <a class="fas fa-user-tie"></a>
+                                </span>
+                                <span *ngIf="user.userRole == 'CUSTOMER'">
+                                    <a class="fas fa-user"></a>
+                                </span>
+                                <a class="fas fa-trash-alt" style="color: red; border-color:red"></a>
+
+
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </nz-table>
+    </nz-spin>
+</div>
