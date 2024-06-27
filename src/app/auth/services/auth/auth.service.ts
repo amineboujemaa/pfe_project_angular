@@ -23,4 +23,9 @@ export class AuthService {
     return this.http.get(BASE_URL+"/api/auth/cars",{
     })
   }
+
+  sendMessage(contactUsDto: any): Observable<any> {
+    return this.http.post(BASE_URL + "/api/auth/contact-us", contactUsDto, {
+    })
+  }
 }

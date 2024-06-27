@@ -37,18 +37,18 @@
         </div>
       </div>
   
-      <div class="contact-form">
+      <div class="contact-form" [formGroup]="validateForm">
         <form>
           <div>
-            <input type="text" class="form-control" placeholder="First Name">
-            <input type="text" class="form-control" placeholder="Last Name">
+            <input type="text" class="form-control" placeholder="Nom" formControlName="firstName">
+            <input type="text" class="form-control" placeholder="Prénom" formControlName="lastName">
           </div>
           <div>
-            <input type="email" class="form-control" placeholder="E-mail">
-            <input type="text" class="form-control" placeholder="Phone">
+            <input type="email" class="form-control" placeholder="E-mail" formControlName="email">
+            <input type="text" class="form-control" placeholder="Telephone" formControlName="phone">
           </div>
           <textarea rows="5" placeholder="Message" class="form-control"></textarea>
-          <input type="submit" class="send-btn" value="send message">
+          <input type="submit" class="send-btn" value="Envoyer message" (click)="sendMessage(validateForm.value)">
         </form>
   
         <div>

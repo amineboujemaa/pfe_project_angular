@@ -27,4 +27,31 @@ export class UserManagementComponent implements OnInit {
     })
   }
 
+  deleteUser(id: number) {
+    console.log(id);
+    this.adminService.deleteUser(id).subscribe((res) => {
+      this.getUsers();
+      this.message.success("utilisateur suprimer", { nzDuration: 5000 });
+    })
+  }
+
+  confirmDelete(userId: number): void {
+    if (window.confirm('Êtes-vous sûr de vouloir supprimer cette utilisateur ?')) {
+      this.deleteUser(userId);
+    }
+  }
+
+  confirmChoix(userId: number): void {
+    if (window.confirm('Êtes-vous sûr de change le user role ?')) {
+      this.userRoleChange(userId);
+    }
+  }
+  userRoleChange(id:number){
+    console.log(id);
+    this.adminService.userRoleChange(id).subscribe((res) => {
+      this.getUsers();
+      this.message.success("userRole bien changer !", { nzDuration: 5000 });
+    })
+  }
+
 }

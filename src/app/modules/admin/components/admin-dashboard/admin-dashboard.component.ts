@@ -50,5 +50,9 @@ export class AdminDashboardComponent implements OnInit {
       this.deleteCar(carId);
     }
   }
+
+  generateQrCode(carId : number){
+
+  }
 }
 

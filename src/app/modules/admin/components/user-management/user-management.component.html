@@ -23,18 +23,15 @@
                     <td>{{ user.username}}</td>
                     <td>{{ user.userRole}}</td>
                     <td>
-                        <div style="float: right;">
+                        <div style="float: left;">
                             <div class="button-links">
-
                                 <span *ngIf="user.userRole == 'ADMIN'">
-                                    <a class="fas fa-user-tie"></a>
+                                    <a class="fas fa-user-tie" (click)="confirmChoix(user.id)"></a>
                                 </span>
                                 <span *ngIf="user.userRole == 'CUSTOMER'">
-                                    <a class="fas fa-user"></a>
+                                    <a class="fas fa-user" (click)="confirmChoix(user.id)"></a>
                                 </span>
-                                <a class="fas fa-trash-alt" style="color: red; border-color:red"></a>
-
-
+                                <a class="fas fa-trash-alt" (click)="confirmDelete(user.id)" style="color: red; border-color:red"></a>
                             </div>
                         </div>
                     </td>

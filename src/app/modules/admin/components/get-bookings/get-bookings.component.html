@@ -45,13 +45,19 @@
                             {{ booking.bookAVisitEnum }}
                         </strong>
                     </td>
-                    <td>                            
-                        <div class="button-links">
-                        <span *ngIf="booking.bookAVisitEnum == 'PENDING'">
-                            <a class="fas fa-check" style="margin-left: 5px;" (click)="confirmChoix(booking.id , 'APPROVED')"></a>    
-                            <a class="fas fa-times" style="margin-left: 0px;" (click)="confirmChoix(booking.id , 'REJECTED')" style="color: red; border-color: red;"></a>   
-                        </span>
-                        </div>
+                    <td> 
+                        <div style="float: left;">
+                            <div style="float: left;">
+                                <div class="button-links">
+                                    <span *ngIf="booking.bookAVisitEnum == 'PENDING'">
+                                        <a class="fas fa-check" (click)="confirmChoix(booking.id , 'APPROVED')" style="color: green; border-color: green;"></a>
+                                        <a class="fas fa-times" (click)="confirmChoix(booking.id , 'REJECTED')" style="color: red; border-color: red;"></a>
+                                    </span>
+                                </div>
+                            </div>
+                           
+                        </div>                           
+                       
                     </td>
                 </tr>
                 <tr style="float: right;">

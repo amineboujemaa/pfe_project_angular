@@ -57,6 +57,10 @@
     </div>
 </div>
 
+<div style="padding-top: 70px;">
+    <h1 class="text-xl font-bold text-gray-800 mb-4 text-center">Nos Voitures</h1>
+
+</div>
 
 <div style="background-color: #F8F8F8; min-height: 91vh;">
 
@@ -79,7 +83,7 @@
                 <hr>
                 <div style="float: right;">
                     <div class="button-links">
-                        <a class="fas fa-bookmark" (click)="saveThisCar(car.id)"></a>
+                        <a class="fa-solid fa-heart-circle-plus" (click)="saveThisCar(car.id)"></a>
                         <a routerLink="/customer/book/{{car.id}}" class="fas fa-calendar-alt"></a>
                         <a class="fas fa-info" routerLink="/customer/car-details/{{car.id}}"></a>
                     </div>

@@ -9,8 +9,20 @@ const BASIC_URL = "http://localhost:9000";
   providedIn: 'root'
 })
 export class AdminService {
+
   constructor(private http:HttpClient){ }
-  
+
+  deleteUser(id: number): Observable<any> {
+    return this.http.delete(BASIC_URL+ "/api/admin/user/"+id, {
+      headers: this.createAuthorizationHeader()
+    });
+  }
+
+  userRoleChange(id: number): Observable<any> {
+    return this.http.get(BASIC_URL+ "/api/admin/userRole/"+id, {
+      headers: this.createAuthorizationHeader()
+    });
+  }
   postCar(carDto: any): Observable<any> {
     return this.http.post(BASIC_URL+"/api/admin/car", carDto, {
       headers : this.createAuthorizationHeader()

@@ -83,7 +83,7 @@
 
                         <a class="fas fa-edit" routerLink="/admin/car/{{car.id}}"></a>
                         <a class="fas fa-info" routerLink="/admin/car-details/{{car.id}}"></a>
-                        <a class="fa-solid fa-qrcode" routerLink=""></a>
+                        <a class="fa-solid fa-qrcode" (click)="generateQrCode(car.id)"></a>
 
                         <a class="fas fa-trash-alt" (click)="confirmDelete(car.id)"
                             style="color: red; border-color:red"></a>
