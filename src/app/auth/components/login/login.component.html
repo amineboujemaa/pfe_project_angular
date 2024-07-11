@@ -1,34 +1,43 @@
 <div class="bg" style="background-color: #f8f8f8;">
     <nz-spin [nzSpinning]="isSpining" [nzSize]="'large'" nzTip="working...">
-
-        <div class="parent">
-            <div class="child">
-                <div nz-row class="imgDiv">
-                    <div nz-col nzSpan="24">
-                        <h1 style="margin-left: 100px; color: #125492;">Login</h1>
-                    </div>
-                </div>
-                <form nz-form [formGroup]="loginForm">
-                    <nz-form-item>
-                        <nz-form-control nzErrorTip="Please input your email">
-                            <nz-input-group nzPrefixIcon="mail">
-                                <input type="text" nz-input placeholder="Email" formControlName="email"/>
-                            </nz-input-group>
-                        </nz-form-control>
-                    </nz-form-item>
-
-                    <nz-form-item>
-                        <nz-form-control nzErrorTip="please input your password!">
-                            <nz-input-group nzPrefixIcon="lock">
-                                <input type="password" nz-input placeholder="password" formControlName="password"/>
-                            </nz-input-group>
-                        </nz-form-control>
-                    </nz-form-item>
-                    <button nz-button class="login-form-button login-form-margin"  [nzType]="'primary'" (click)="login()"[disabled]="loginForm.invalid">log in</button>
-                    Ou <a routerLink="/register">Inscrivez-vous maintenant</a>
-                </form>
+      <div class="parent">
+        <div class="child">
+          <div nz-row class="imgDiv">
+            <div nz-col nzSpan="24">
+              <h1 style="margin-left: 100px; color: #125492;">Login</h1>
             </div>
+          </div>
+          <form nz-form [formGroup]="loginForm">
+            <nz-form-item>
+              <nz-form-control [nzErrorTip]="emailErrorTpl">
+                <nz-input-group nzPrefixIcon="mail">
+                  <input type="text" nz-input placeholder="Email" formControlName="email" />
+                </nz-input-group>
+              </nz-form-control>
+              <ng-template #emailErrorTpl>
+                <div *ngIf="loginForm.get('email')?.hasError('required')">Veuillez entrer un email</div>
+                <div *ngIf="loginForm.get('email')?.hasError('email')">Veuillez entrer un email valide</div>
+              </ng-template>
+            </nz-form-item>
+  
+            <nz-form-item>
+              <nz-form-control [nzErrorTip]="passwordErrorTpl">
+                <nz-input-group nzPrefixIcon="lock">
+                  <input type="password" nz-input placeholder="Password" formControlName="password" />
+                </nz-input-group>
+              </nz-form-control>
+              <ng-template #passwordErrorTpl>
+                <div *ngIf="loginForm.get('password')?.hasError('required')">Veuillez entrer un mot de passe</div>
+                <div *ngIf="loginForm.get('password')?.hasError('minlength')">Le mot de passe doit contenir au moins 8 caractères</div>
+                <div *ngIf="loginForm.get('password')?.hasError('pattern')">Le mot de passe doit contenir au moins une majuscule</div>
+              </ng-template>
+            </nz-form-item>
+  
+            <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'" (click)="login()" [disabled]="loginForm.invalid">Log in</button>
+            Ou <a routerLink="/register">Inscrivez-vous maintenant</a>
+          </form>
         </div>
-
+      </div>
     </nz-spin>
-</div>
+  </div>
+  
