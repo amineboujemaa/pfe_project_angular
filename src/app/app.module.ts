@@ -12,8 +12,6 @@ import fr from '@angular/common/locales/fr';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { QRCodeModule } from 'angularx-qrcode';
-
 //imports ng zorro
 import { NzSpinModule } from 'ng-zorro-antd/spin';
 import { NzFormModule } from 'ng-zorro-antd/form';
@@ -59,7 +57,7 @@ registerLocaleData(fr);
     NzMenuModule,
     NzLayoutModule,
     BrowserAnimationsModule,
-    QRCodeModule ,
+    
 
   ],
   providers: [{ provide: NZ_I18N, useValue: fr_FR }],
