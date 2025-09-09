@@ -11,6 +11,7 @@ export class AdminDashboardComponent implements OnInit {
 
   cars: any = [];
   data:any;
+  qrCodeImage: any;
 
   constructor(private adminService: AdminService,
     private message: NzMessageService) { }
@@ -51,8 +52,26 @@ export class AdminDashboardComponent implements OnInit {
     }
   }
 
-  generateQrCode(carId : number){
+  generateQRCode(carId : number){
+    this.adminService.generateQRCode(carId).subscribe((data: Blob) => {
+      console.log(data)
+      this.createImageFromBlob(data);
+    });
+  }
 
+  createImageFromBlob(image: Blob) {
+    let reader = new FileReader();
+    reader.addEventListener("load", () => {
+      this.qrCodeImage = reader.result;
+    }, false);
+
+    if (image) {
+      reader.readAsDataURL(image);
+    }
+  }
+
+  closePopup() {
+    this.qrCodeImage = null; // Set qrCodeImage to null to hide the popup
   }
 }
 

@@ -1,98 +1,46 @@
+<!-- Import FontAwesome CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<div class="widget-container" *ngIf="data">
-    <div class="widget blue">
-        <div class="icon">
-            <p class="fas fa-car-alt icon-white"></p>
-        </div>
-        <div class="value">
-            <div class="top">{{data.cars}}</div>
-            <div class="bottom">Voitures</div>
-        </div>
-    </div>
-    <div class="widget blue">
-        <div class="icon">
-            <p class="fas fa-heart"></p>
-        </div>
-        <div class="value">
-            <div class="top">{{data.savedCars}}</div>
-            <div class="bottom">Favoris</div>
-        </div>
-    </div>
-    <div class="widget blue">
-        <div class="icon">
-            <p class="fas fa-calendar-alt"></p>
-        </div>
-        <div class="value">
-            <div class="top">{{data.bookings}}</div>
-            <div class="bottom">Rendez-vous</div>
-        </div>
-    </div>
-    <div class="widget green">
-        <div class="icon">
-            <p class="fas fa-calendar-alt"></p>
-        </div>
-        <div class="value">
-            <div class="top">{{data.approvedBookings}}</div>
-            <div class="bottom">Confirmer</div>
-        </div>
-    </div>
-    <div class="widget red">
-        <div class="icon">
-            <p class="fas fa-calendar-alt"></p>
-        </div>
-        <div class="value">
-            <div class="top">{{data.rejectedBookings}}</div>
-            <div class="bottom">Rejeter</div>
-        </div>
-    </div>
-    <div class="widget yellow">
-        <div class="icon">
-            <p class="fas fa-calendar-alt"></p>
-        </div>
-        <div class="value">
-            <div class="top">{{data.pendingBookings}}</div>
-            <div class="bottom">En cours</div>
-        </div>
-    </div>
-</div>
-
+<!-- Main content container -->
 <div style="background-color: #F8F8F8; min-height: 91vh;">
-    <div style="padding-top: 10px;"></div>
-
-    <div style="margin-top: 10px;" class="child" *ngFor="let car of cars">
+    <!-- Other content -->
+    <!-- Car details and actions -->
+    <div class="child" *ngFor="let car of cars">
         <div nz-row>
             <div nz-col nzSpan="8">
-                <img class="profile" style="height: 130px; width: 200px; border-radius: 10px;" [src]="car.processedImg"
-                    alt="profile" />
+                <img class="profile" style="height: 130px; width: 200px; border-radius: 10px;" [src]="car.processedImg" alt="profile" />
             </div>
             <div nz-col nzSpan="16">
                 <h2 style="cursor: pointer; color: #108ee9;">
                     {{car.brand}} - {{car.name}}
                 </h2>
                 <p>{{car.description}}</p>
-
                 <hr>
                 <h5>Prix : <b>{{car.price}}MDT</b> - Couleur : <b>{{car.color}}</b> - boîte de vitesses :
-                    <b>{{car.transmission}}</b> - Type : <b>{{car.type}}</b> - annee : <b>{{car.year | date:
-                        'yyyy'}}</b>
+                    <b>{{car.transmission}}</b> - Type : <b>{{car.type}}</b> - annee : <b>{{car.year | date: 'yyyy'}}</b>
                 </h5>
                 <hr>
                 <div style="float: right;">
                     <div class="button-links">
-
+                        <!-- FontAwesome icons for actions -->
                         <a class="fas fa-edit" routerLink="/admin/car/{{car.id}}"></a>
                         <a class="fas fa-info" routerLink="/admin/car-details/{{car.id}}"></a>
-                        <a class="fa-solid fa-qrcode" (click)="generateQrCode(car.id)"></a>
-
-                        <a class="fas fa-trash-alt" (click)="confirmDelete(car.id)"
-                            style="color: red; border-color:red"></a>
-
-
+                        <!-- Trigger QR code generation -->
+                        <a class="fa-solid fa-qrcode" (click)="generateQRCode(car.id)"></a>
+                        <a class="fas fa-trash-alt" (click)="confirmDelete(car.id)" style="color: red; border-color:red"></a>
                     </div>
                 </div>
-                
             </div>
+        </div>
+    </div>
+</div>
+
+<!-- Popup/modal container for QR code -->
+<div class="popup" *ngIf="qrCodeImage">
+    <div class="popup-content">
+        <span class="close" (click)="closePopup()">&times;</span>
+        <div class="qr-code">
+            <img [src]="qrCodeImage" alt="QR Code">
         </div>
     </div>
 </div>

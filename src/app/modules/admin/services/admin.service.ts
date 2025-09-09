@@ -107,7 +107,14 @@ export class AdminService {
       headers : this.createAuthorizationHeader()
     });
   }
- 
+  
+
+  generateQRCode(carId: number): Observable<Blob> {
+    return this.http.post(`${BASIC_URL}/api/admin/QrCode/${carId}`, {}, {
+      headers: this.createAuthorizationHeader(),
+      responseType: 'blob'
+    });
+  }
 
   getStat(): Observable<any> {
     return this.http.get(BASIC_URL +"/api/admin/car/stat",{
